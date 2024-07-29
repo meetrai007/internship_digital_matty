@@ -1,13 +1,11 @@
-# Define the range for "close"
+# n = int(input())
+# arr = map(int, input().split())
 
-number = int(input("Enter a number: "))
-# Function to check if a number is close to 55
+arr=[5,7,5,4,2,4,7]
 
-if 55 - 5 <= number <= 55 + 5:
-    print("Close to 55")
-else:
-    print("Not close to 55")
-
-# Example usage
-
-
+# arr2=arr.sort()
+# arr3=arr2.reverse()
+# print(arr3[1])
+remdup=set(arr)
+arr2=list(sorted(remdup,reverse=True))
+print(arr2[1])
