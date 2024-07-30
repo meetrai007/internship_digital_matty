@@ -1093,15 +1093,22 @@ dict = {
     },
 }
 
+"""to store k=key and v=value from dict dictnary"""
 for k,v in dict.items():
+
+    """to check condition if key=list"""
     if k=="list":
+
+        """to store kkey and val=value from all dictnarys stored in a list"""
         for i in range (len(v)):
             for key,val in v[i].items():
                 # print(f"{kk}:{vv}\n")
+                
+                """to print temp with dt"""
                 if key=="dt":
                     print(f"dt:{val}")
                 if key=="main":
-                    print(f"temp:{val["temp"]}\n")
+                    print(f"\ttemp:{val["temp"]}\n")
                 
                 
         
