@@ -1,87 +1,82 @@
-"""import math tu use some mathmatic methods"""
-import math
+import  math
 
-"""there are some functions to solve any equations"""
-def multiply(a,b):
-    """to multiply two numbers"""
-    result=a*b
-    return result
 
-def addition(a,b):
-    """to addition two numbers"""
-    result=a+b
-    return result
+total=0
 
-def divided(a,b):
-    """to divides two numbers"""
-    result=a/b
-    return result
+"""taking user choice to do any calculation"""
+print(f"total={total}")
+choice=int(input("1.mul\n2.add\n3.sub\n4.dev\n5.sqr\n6.sqrt\n7.exit\nEnter choice:"))
 
-def subtract(a,b):
-    """to subtract two numbers"""
-    result=a-b
-    return result
+if 0<=choice<=4:
+    a=int(input("enter 1st num:"))
+    b=int(input("enter 2st num:"))
+if 5<=choice<=6:
+    c=int(input("enter num:"))
 
-def square(a):
-    """to find square of a number"""
-    result=a*a
-    return result
 
-def squareroot(a):
-    """to find squareroot"""
-    result=math.sqrt(a)
-    return result
+if choice==1:
+    total=a*b
+    print(f"total={total}")
+    
+if choice==2:
+    total=a+b
+    print(f"total={total}")
+    
+if choice==3:
+    total=a-b
+    print(f"total={total}")
+    
+if choice==4:
+    total=a/b
+    print(f"total={total}")
 
-"""input by user which task he want to be performed"""
-print("1.multiply","2.addition","3.divide","4.subtract","5.square","6.squareroot",sep="\n")
+if choice==5:
+    total=c*c
+    print(f"total={total}")
 
-"""to taking a valid choice by user"""
+if choice==6:
+    total=math.sqrt(c)
+    print(f"total={total}")
+    
 while True:
-    try:
-        choice=int(input("choose what do you want "))
-        if (choice>=1 and choice<=6):
-            break
-        else:
-            print("enter a valid choice between options 1 to 5")
-    except ValueError:
-        print("enter a number only between options 1 to 5 not any other alphabets or symbols")
+    """taking user choice to add more calculation"""
+    choice=int(input("1.mul with total\n2.add num in total\n3.sub num in total\n4.dev total by a num\n5.sqr\n6.sqrt of total\n7.exit and calculate new num\nEnter choice to make calculation with total:"))
+    
 
-"""to taking a valid data by user""" 
-while True: 
-    try:  
-        """to brake loop"""
-        if (choice>=1 and choice<=4):
-            """taking 2 inputs by user"""
-            a=int(input("enter 1st number ="))
-            b=int(input("enter 2st number ="))
-            break
+    if choice==1:
+        d=int(input(f"{total}*"))
+        total=total*d
+        print(f"total={total}")
     
-        elif((choice==5 or choice==6)):
-            """taking 1 input for square"""
-            a=int(input("enter a number for square ="))
-            break
+    if choice==2:
+        d=int(input(f"{total}+"))
+        total=total+d
+        print(f"total={total}")
+        
+    if choice==3:
+        d=int(input(f"{total}-"))
+        total=total-d
+        print(f"total={total}")
+        
+    if choice==4:
+        d=int(input(f"{total}/"))
+        total=total/d
+        print(f"total={total}")
+
+    if choice==5:
+        total=total*total
+        print(f"square of total is {total}")
+
+    if choice==6:
+        total=math.sqrt(total)
+        print(f"squareroot of total is {total}")
     
-        else:    
-            print("enter a valid choice between options 1 to 6")
+    if choice==7:
         break
-    except ValueError as valerror:
-        print("please enter a numbr only not any alphabet or others")
- 
-"""to perform action acording to user requirements"""
-if (choice==1):
-    print("the result is =",multiply(a,b))
-elif (choice==2):
-    print("the result is =",addition(a,b))
-elif (choice==3):
-    print("the result is =",divided(a,b))
-elif (choice==4):
-    print("the result is =",subtract(a,b))
-elif (choice==5):
-    print("the result is =",square(a))    
-elif (choice==6):
-    print("the result is =",squareroot(a))    
-else:
-    print("hello")
+
+   
+
+
 
 
 
