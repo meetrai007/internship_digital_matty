@@ -6,7 +6,11 @@ user_guess=None
 
 print("welcome to the guess the number game\n")
 while guess != user_guess :
-    user_guess=int(input("guess a number between 1 to 100:"))
+    try:
+        user_guess=int(input("guess a number between 1 to 100:"))
+    except Exception as ex:
+        print("Enter a valid integer number between 1-100")
+        continue
     if user_guess==guess:
         print("congratulation, you guess the right number")
     elif (guess - 5) <= user_guess <= (guess + 5):
