@@ -8,8 +8,11 @@ word="-" * (len(guess))
 print(f"guess the word:{word}")
 
 while True:
-
-    user_guess=str(input("\nEnter your guess alphabet:"))
+    try:
+        user_guess=str(input("\nEnter your guess alphabet:"))
+    except:
+        print("Enter valid alphabet a-z")
+        continue
 
     if user_guess in guess:
         new_word=""
