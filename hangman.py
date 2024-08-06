@@ -29,6 +29,7 @@ while True:
         print(f"entred wrord,your chanse left:{chance}")
         if chance==0:
             print("you are loss the game")
+            print(f"Correct word is {guess}")
             break
 
     if guess==word:

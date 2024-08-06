@@ -13,6 +13,6 @@
 
 """code to marge two dict"""
 dict1={1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81, 10: 100}
-dict2={1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81, 10: 100}
 
-print(dir(dict1))
+for i in enumerate(dict1,100):
+    print(i)
