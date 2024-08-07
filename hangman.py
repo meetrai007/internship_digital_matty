@@ -8,13 +8,13 @@ guess=random.choice(word_list)
 chance=5
 word="-" * (len(guess))
 
-logging.INFO(f"guess the word:{word}")
+logging.info(f"guess the word:{word}")
 
 while True:
     try:
         user_guess=str(input("\nEnter your guess alphabet:"))
     except:
-        logging.ERROR("Enter valid alphabet a-z")
+        logging.error("Enter valid alphabet a-z")
         continue
 
     if user_guess in guess:
@@ -25,18 +25,18 @@ while True:
             else:
                 new_word+=word[i]
         word=new_word
-        logging.INFO(f"current word:{new_word}")
+        logging.info(f"current word:{new_word}")
 
     else:
         chance-=1
-        logging.WARNING(f"entred wrord,your chanse left:{chance}")
+        logging.warning(f"entred wrord,your chanse left:{chance}")
         if chance==0:
-            logging.I("you are loss the game")
-            logging.I(f"Correct word is {guess}")
+            logging.info("you are loss the game")
+            logging.info(f"Correct word is {guess}")
             break
 
     if guess==word:
-        logging.I("you are win the game")
+        logging.info("you are win the game")
         break
         
         
