@@ -1,17 +1,20 @@
 import random
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
 
 word_list=["hello","hii","computer"]
 guess=random.choice(word_list)
 chance=5
 word="-" * (len(guess))
 
-print(f"guess the word:{word}")
+logging.INFO(f"guess the word:{word}")
 
 while True:
     try:
         user_guess=str(input("\nEnter your guess alphabet:"))
     except:
-        print("Enter valid alphabet a-z")
+        logging.ERROR("Enter valid alphabet a-z")
         continue
 
     if user_guess in guess:
@@ -22,18 +25,18 @@ while True:
             else:
                 new_word+=word[i]
         word=new_word
-        print(f"current word:{new_word}")
+        logging.INFO(f"current word:{new_word}")
 
     else:
         chance-=1
-        print(f"entred wrord,your chanse left:{chance}")
+        logging.WARNING(f"entred wrord,your chanse left:{chance}")
         if chance==0:
-            print("you are loss the game")
-            print(f"Correct word is {guess}")
+            logging.I("you are loss the game")
+            logging.I(f"Correct word is {guess}")
             break
 
     if guess==word:
-        print("you are win the game")
+        logging.I("you are win the game")
         break
         
         
