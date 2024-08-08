@@ -1,10 +1,14 @@
 # from fileheandling import *
 import json
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 with open ("contects.json","r") as file:
     try:
         contects=json.load(file)
     except:
+        logging.error("json file is blank so assign dict in contents variable")
         contects={}
 while True:
     userchoice = int(
@@ -28,28 +32,30 @@ while True:
     
     if userchoice == 2:
         for name,detail in contects.items():
-            print(name)
+            logging.info(name)
             for info_type,info_detail in detail.items():
-                print(f"\t{info_type}:{info_detail}")
+                logging.info(f"\t{info_type}:{info_detail}")
 
     if userchoice == 3:
         while True:
             n_search = str(input("enter name to search number: "))
             for k, v in contects[n_search].items():
-                print(f"{k}={v}")
+                logging.info(f"{k}={v}")
             addmore = str(input("you want to search another content y/n: "))
             if (str.lower(addmore)) == "n":
                 break
 
     if userchoice == 4:
-        print("this feature under work")
+        logging.debug("this feature under work")
         while True:
             rem_contect = str(input("enter name of content you want to delete: "))
             contects.pop(rem_contect)
             delmore = str(input("you want to search another content y/n: "))
             if (str.lower(delmore)) == "n":
-                print(contects)
+                logging.info(contects)
                 break
 
     if userchoice == 5:
         break
+
+logging.debug(contects)
