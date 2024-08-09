@@ -22,5 +22,6 @@ new_currency=data["data"][current_type_list[input_index2]]
 
 money=int(input("enter price to convert:"))
 converted_currency=(money/current_currency)*new_currency
-logging.info(f"your converted currency is {converted_currency} {current_type_list[input_index2]}")
+
+logging.info(f"your converted currency is {round(converted_currency, 2)} {current_type_list[input_index2]}")
 
