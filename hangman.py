@@ -36,7 +36,7 @@ while True:
             break
 
     if guess==word:
-        logging.info("you are win the game")
+        logging.info(f"you are win the game, with {chance} chanses")
         break
         
         
