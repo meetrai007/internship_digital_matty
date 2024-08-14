@@ -3,7 +3,18 @@ import logging
 
 logging.basicConfig(level=logging.DEBUG)
 
-word_list=["hello","hii","computer"]
+word_list = [
+    "apple", "banana", "cherry", "grape", "orange",
+    "pineapple", "strawberry", "watermelon", "peach", "mango",
+    "computer", "keyboard", "mouse", "monitor", "printer",
+    "guitar", "piano", "violin", "drums", "trumpet",
+    "mountain", "river", "ocean", "forest", "desert",
+    "elephant", "tiger", "giraffe", "lion", "zebra",
+    "house", "apartment", "castle", "cottage", "mansion",
+    "bicycle", "car", "train", "airplane", "helicopter",
+    "pencil", "book", "notebook", "backpack", "calculator",
+    "pizza", "burger", "pasta", "sushi", "salad"
+]
 guess=random.choice(word_list)
 chance=5
 word="-" * (len(guess))
