@@ -4,12 +4,12 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
-with open ("contects.json","r") as file:
-    try:
+try:
+    with open ("contects.json","r") as file:
         contects=json.load(file)
-    except:
-        logging.error("json file is blank so assign dict in contents variable")
-        contects={}
+except:
+    logging.error("json file is blank so assign dict in contents variable")
+    contects={}
 while True:
     userchoice = int(
         input(
