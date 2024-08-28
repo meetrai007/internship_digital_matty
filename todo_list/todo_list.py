@@ -36,6 +36,7 @@ def operations():
                 todolist.append(newtask)
                 with open ("todo_list\\todolist.json","w") as f:
                     json.dump(todolist,f)
+                e1.delete(0,END)
             logging.debug("hello ")
             add_root=Tk()
             add_root.title("to-do list")
