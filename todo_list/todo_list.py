@@ -37,8 +37,10 @@ def operations():
                 with open ("todo_list\\todolist.json","w") as f:
                     json.dump(todolist,f)
                 e1.delete(0,END)
+                messagebox.showinfo("information","a task added in todo list")
+                add_root.destroy()
             logging.debug("hello ")
-            add_root=Tk()
+            add_root=Toplevel()
             add_root.title("to-do list")
             add_root.geometry("500x600+300+100")
 
@@ -50,7 +52,6 @@ def operations():
             e1.grid(row=4)
             submit=Button(add_root,text="sibmit",width=10,height=2,command=addtask)
             submit.grid(row=6)
-            add_root.mainloop()
             to_do_list.addtaskstate=False
 
 
@@ -59,7 +60,7 @@ def operations():
             for index,values in enumerate(todolist,1):
                 entry_text+=(f"{index}.{values}\n\n")
 
-            view_root=Tk()
+            view_root=Toplevel()
             view_root.title("to-do list")
             view_root.geometry("500x600+300+100")
 
@@ -68,37 +69,36 @@ def operations():
             label=Label(view_root,text="this is the todo list",width=50,height=30)
             label.config(text=entry_text)
             label.grid(row=2)
-            view_root.mainloop()
             to_do_list.viewtaskstate=False
 
 
         if to_do_list.r_taskstate:
             def removetask():
-                removebyindex=int(taskto_r.get())
-                logging.debug(removebyindex)
-                todolist.remove(todolist[removebyindex])
+                logging.debug("removebyindex")
+                for i in listbox.curselection():
+               
+                    todolist.remove(listbox.get(i))
                 with open ("todo_list\\todolist.json","w") as f:
                     json.dump(todolist,f)
-            entry_text=""
-            for index,values in enumerate(todolist):
-                entry_text+=(f"{index}.{values}\n\n")
-            logging.debug(entry_text)
-            remove_root=Tk()
+                listbox.delete(0,END)
+                for item in todolist: 
+                    listbox.insert(END, item)
+            
+            logging.debug("entry_text")
+            remove_root=Toplevel()
             remove_root.title("to-do list")
             remove_root.geometry("500x600+300+100")
 
             label=Label(remove_root,text="enter the index of task to remove from todo list",bg="gray",fg="white")
             label.pack()
-            label=Label(remove_root,text="this is the todo list")
-            label.config(text=entry_text)
-            label.pack()
             label=Label(remove_root,text="choose index to remove from todo list")
             label.pack()
-            taskto_r=Entry(remove_root,text="add task")
-            taskto_r.pack()
+            listbox=Listbox(remove_root,selectmode=MULTIPLE,height=10)
+            listbox.pack()
+            for item in todolist: 
+                listbox.insert(END, item)
             submit=Button(remove_root,text="sibmit",width=10,height=2,command=removetask)
             submit.pack()
-            remove_root.mainloop()
             to_do_list.r_taskstate=False
 
 thread1=threading.Thread(target=operations,daemon=True).start()
