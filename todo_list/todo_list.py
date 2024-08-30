@@ -43,16 +43,16 @@ def operations():
             add_root=Toplevel()
             add_root.title("to-do list")
             add_root.geometry("500x600+300+100")
-            add_root.config(bg="gray")
+            add_root.config(bg="#d9ced0")
 
-            labl1=Label(add_root,text="welcome to todo list app",bg="#73264d",fg="white",font="bold",width=55)
+            labl1=Label(add_root,text="welcome to todo list app",bg="#d9ced0",fg="black",font="Times 20 italic bold",width=33)
             labl1.grid(row=1,sticky=N,ipady=20)
             # labl1.grid(row=1,column=1,pady=20,padx=150)
-            labl2=Label(add_root,text="enter a task to add in todo list",font="bold",bg="black",fg="white")
+            labl2=Label(add_root,text="enter a task to add in todo list",font="bold",bg="#d9ced0",fg="black")
             labl2.grid(row=2,pady=40)
             e1=Entry(add_root,text="add task",width=25,font="bold")
             e1.grid(row=3,pady=5,ipadx=5,ipady=5)
-            submit=Button(add_root,text="sibmit",width=20,height=2,fg="black",bg="#927b76",font="bold",command=addtask)
+            submit=Button(add_root,text="sibmit",width=20,height=2,fg="white",bg="#436af2",font="bold",command=addtask)
             submit.grid(row=4,pady=30)
             to_do_list.addtaskstate=False
 
@@ -65,12 +65,13 @@ def operations():
             view_root=Toplevel()
             view_root.title("to-do list")
             view_root.geometry("500x600+300+100")
+            view_root.config(bg="#d9ced0")
 
-            labl1=Label(view_root,text="the task of todo list",bg="gray",fg="white")
-            labl1.grid(row=1,sticky=N,ipadx=10,ipady=10,padx=170,pady=10)
-            label=Label(view_root,text="this is the todo list",width=50,height=30)
+            labl1=Label(view_root,text="the task of todo list",bg="#d9ced0",fg="black",font="Times 20 italic bold",width=31)
+            labl1.grid(row=1,sticky=N,ipadx=10,ipady=10)
+            label=Label(view_root,text="this is the todo list",bg="#d9ced0",width=30,height=20,font="Times 14 bold")
             label.config(text=entry_text)
-            label.grid(row=2)
+            label.grid(row=2,sticky=N)
             to_do_list.viewtaskstate=False
 
 
@@ -90,16 +91,15 @@ def operations():
             remove_root=Toplevel()
             remove_root.title("to-do list")
             remove_root.geometry("500x600+300+100")
+            remove_root.config(bg="#d9ced0")
 
-            label=Label(remove_root,text="enter the index of task to remove from todo list",bg="#73264d",fg="white")
+            label=Label(remove_root,text="Select task to remove from todo list",bg="#d9ced0",fg="black",font="Times 19 italic bold",width=40)
             label.pack()
-            label=Label(remove_root,text="choose index to remove from todo list")
-            label.pack()
-            listbox=Listbox(remove_root,selectmode=MULTIPLE,height=20,width=50)
-            listbox.pack()
+            listbox=Listbox(remove_root,selectmode=MULTIPLE,height=10,width=30,bg="#d9ced0",fg="black",font="Times 19 italic")
+            listbox.pack(pady=20)
             for item in todolist: 
                 listbox.insert(END, item)
-            submit=Button(remove_root,text="sibmit",width=10,height=2,command=removetask)
+            submit=Button(remove_root,text="sibmit",width=20,height=2,fg="white",bg="#436af2",font="bold",border=0,command=removetask)
             submit.pack()
             to_do_list.r_taskstate=False
 
@@ -109,17 +109,17 @@ thread1=threading.Thread(target=operations,daemon=True).start()
 root=Tk()
 root.title("to-do list")
 root.geometry("500x600+300+100")
-root.config(bg="gray")
+root.config(bg="#d9ced0")
 
-labl1=Label(root,text="welcome to todo list app",bg="#73264d",fg="white",font="bold",width=55)
+labl1=Label(root,text="welcome to todo list app",bg="#d9ced0",fg="black",font="Times 20 italic bold",width=33)
 labl1.grid(row=1,sticky=N,ipady=20)
 
-b1=Button(root,text="add task",width=20,height=2,fg="black",bg="#927b76",font="bold",command=to_do_list.on_addtask)
-b1.place(x=160,y=150)
-b2=Button(root,text="view task",width=20,height=2,fg="black",bg="#927b76",font="bold",command=to_do_list.on_viewtask)
-b2.place(x=160,y=250)
-b3=Button(root,text="remove task",width=20,height=2,fg="black",bg="#927b76",font="bold",command=to_do_list.on_remove_task)
-b3.place(x=160,y=350)
+b1=Button(root,border=0,text="add task",width=20,height=2,fg="white",bg="#436af2",font="bold",command=to_do_list.on_addtask)
+b1.place(x=150,y=150)
+b2=Button(root,border=0,text="view task",width=20,height=2,fg="white",bg="#436af2",font="bold",command=to_do_list.on_viewtask)
+b2.place(x=150,y=250)
+b3=Button(root,border=0,text="remove task",width=20,height=2,fg="white",bg="#436af2",font="bold",command=to_do_list.on_remove_task)
+b3.place(x=150,y=350)
 
 root.mainloop()
 
