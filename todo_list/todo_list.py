@@ -33,7 +33,7 @@ def operations():
         if to_do_list.addtaskstate:
             def addtask():
                 newtask=e1.get()
-                if newtask !="":
+                if (newtask!="") and (len(newtask)>5):
                     todolist.append(newtask)
                     with open ("todo_list\\todolist.json","w") as f:
                         json.dump(todolist,f)
@@ -41,7 +41,7 @@ def operations():
                     messagebox.showinfo("information","a task added in todo list")
                     add_root.destroy()
                 else:
-                    messagebox.showwarning("information","new task cannot be blank")
+                    messagebox.showwarning("information","new task cannot be blank or enter more then 5 charecter")
             logging.debug("hello ")
             add_root=Toplevel()
             add_root.title("to-do list")
